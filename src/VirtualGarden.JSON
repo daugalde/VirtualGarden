@@ -1,6 +1,7 @@
 {
 	"simulationTime": 3,
-	"seasons": [{
+	"seasons": [
+		{
 			"id": 1,
 			"name": "sunny",
 			"sun": 1,
@@ -8,118 +9,154 @@
 			"wind": 2,
 			"temperature": 1,
 			"startMonth": 1,
-			"endMonth": 6
+			"endMonth": 6,
+			"isActive": true
 		},
 		{
 			"id": 2,
-			"name": "Raining",
+			"name": "raining",
 			"sun": 2,
 			"water": 1,
 			"wind": 2,
 			"temperature": 3,
 			"startMonth": 7,
-			"endMonth": 12
+			"endMonth": 12,
+			"isActive": false
 		}
 	],
-	"sizes": [{
+	"sizes": [
+		{
 			"id": 1,
-			"name": "Seedling"
+			"name": "seedling"
 		},
 		{
 			"id": 2,
-			"name": "Flowers"
+			"name": "flowers"
 		},
 		{
 			"id": 3,
-			"name": "Fruits"
+			"name": "fruits"
 		},
 		{
 			"id": 4,
-			"name": "Dead"
+			"name": "dead"
 		}
 	],
-	"levels": [{
+	"levels": [
+		{
 			"id": 1,
-			"name": "High",
+			"name": "high",
 			"max": 100,
 			"min": 81
 		},
 		{
 			"id": 2,
-			"name": "Medium",
+			"name": "medium",
 			"max": 80,
 			"min": 61
 		},
 		{
 			"id": 3,
-			"name": "Low",
+			"name": "low",
 			"max": 60,
 			"min": 31
 		},
 		{
 			"id": 4,
-			"name": "Critical",
+			"name": "very low",
 			"max": 30,
 			"min": 10
 		},
 		{
 			"id": 4,
-			"name": "Zero",
+			"name": "zero",
 			"max": 9,
 			"min": 0
 		}
 	],
-	"lifeCycles": [{
+	"lifecycles": [
+		{
 			"id": 1,
-			"Size": 1,
-			"Health": 1,
-			"waterNeed": 1,
-			"sunNeed": 2,
-			"Fertilizer": 1,
-			"Image": "Path"
+			"size": 1,
+			"health": 1,
+			"waterneed": 1,
+			"sunneed": 2,
+			"fertilizer": 1,
+			"image": "path"
 		},
 		{
 			"id": 2,
-			"Size": 2,
-			"Health": 2,
-			"waterNeed": 2,
-			"sunNeed": 2,
-			"Fertilizer": 2,
-			"Image": "Path"
+			"size": 2,
+			"health": 2,
+			"waterneed": 2,
+			"sunneed": 2,
+			"fertilizer": 2,
+			"image": "path"
 		},
 		{
 			"id": 3,
-			"Size": 3,
-			"Health": 2,
-			"waterNeed": 1,
-			"sunNeed": 1,
-			"Fertilizer": 2,
-			"Image": "Path"
+			"size": 3,
+			"health": 2,
+			"waterneed": 1,
+			"sunneed": 1,
+			"fertilizer": 2,
+			"image": "path"
 		},
 		{
 			"id": 4,
-			"Size": 4,
-			"Health": 4,
-			"waterNeed": 1,
-			"sunNeed": 1,
-			"Fertilizer": 0,
-			"Image": "Path"
+			"size": 4,
+			"health": 4,
+			"waterneed": 1,
+			"sunneed": 1,
+			"fertilizer": 0,
+			"image": "path"
 		}
 	],
-	"garden": [{
-		"id": 1,
-		"name": "Avocado",
-		"lifeCycle": {
-			"id": 1,
-			"size": {
-			        "id": 1,
-			        "name": "Seedling"
-		           },
-			"Health": 1,
-			"waterNeed": 1,
-			"sunNeed": 2,
-			"Fertilizer": 1,
-			"Image": "./src/Stage1.jpg"
-		}
-	}]
+	"garden": {
+		"plants": [
+			{
+				"id": 1,
+				"ageDays": 10,
+				"name": "Avocado",
+				"lifeCycle": {
+					"id": 1,
+					"size": {
+						"id": 1,
+						"name": "seedling"
+					},
+					"waterNeed": {
+						"id": 1,
+						"name": "high",
+						"max": 100,
+						"min": 81
+					},
+					"sunNeed": {
+						"id": 2,
+						"name": "medium",
+						"max": 80,
+						"min": 61
+					},
+					"temperature": {
+						"id": 2,
+						"name": "medium",
+						"max": 80,
+						"min": 61
+					},
+					"fertilizer": {
+						"id": 1,
+						"name": "high",
+						"max": 100,
+						"min": 81
+					},
+					"image": "./src/Stage1.jpg"
+				}
+			}
+		],
+		"plantTypes": [
+			"Avocado",
+			"Lemon",
+			"Orange",
+			"Coffe"
+		]
+	}
 }

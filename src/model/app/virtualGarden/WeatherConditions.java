@@ -1,30 +1,34 @@
 package model.app.virtualGarden;
 
-public class WeatherConditions {
+import java.util.ArrayList;
+
+import common.Observable;
+
+public class WeatherConditions extends Observable {
 	
-	/*private int currentSun;
+	private int currentSun;
 	
-	private int currentRain;
+	private int currentWater;
 	
 	private int currentTemperature;
-	*/
-	
-	
-	
+
 	public WeatherConditions() {
 		
 	}
 	
-    public WeatherConditions(Season season) {
-		
+    public WeatherConditions(Season season, ArrayList<Plant> plants) {
+    	setCurrentSun(season.getSun());
+    	setCurrentWater(season.getWater());
+    	setCurrentTemperature(season.getTemperature());		
+    	 notifyConditions ( plants);
+	}
+
+	public int getCurrentWater() {
+		return currentWater;
 	}
 	
-	/*public int getCurrentRain() {
-		return currentRain;
-	}
-	
-	public void setCurrentRain(int currentRain) {
-		this.currentRain = currentRain;
+	public void setCurrentWater(int currentRain) {
+		this.currentWater = currentRain;
 	}
 	
 	public int getCurrentTemperature() {
@@ -42,5 +46,16 @@ public class WeatherConditions {
 	public void setCurrentSun(int currentSun) {
 		this.currentSun = currentSun;
 	}
-	*/
+	
+	public void notifyConditions (ArrayList<Plant> plants) {
+		for(int i = 0 ; i < plants.size(); i++) {
+			Plant p = plants.get(i);
+			this.addObserver(p);
+		}
+	}
+	
+	public String toString() {
+		return "current sun " + currentSun + "  current water  " + currentWater;
+	}
+	
 }

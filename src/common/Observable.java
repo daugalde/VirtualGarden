@@ -1,16 +1,12 @@
 package common;
 
 import java.util.ArrayList;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class Observable {
 	private ArrayList<IObserver> observers;
-	private ExecutorService executorPool;
 	
 	public Observable() {
 		observers = new ArrayList<IObserver>();
-		executorPool = Executors.newFixedThreadPool(5);
 	}
 	
 	public void addObserver(IObserver pObservable) {
@@ -31,15 +27,7 @@ public class Observable {
 		Observable thisInstance = this;
 		
 		for(IObserver observer : observers) {
-			
-			Runnable task = new Runnable() {
-				@Override
-				public void run() {
-					observer.update(thisInstance, pValue);
-				}
-			};
-			
-			executorPool.execute(task);
+			observer.update(thisInstance, pValue);
 		}
 	}
 }

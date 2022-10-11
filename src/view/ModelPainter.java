@@ -7,6 +7,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.ListCellRenderer;
+
  
 @SuppressWarnings({ "serial", "rawtypes" })
 public class ModelPainter 
@@ -14,8 +15,10 @@ extends JLabel
 implements ListCellRenderer
 {
 
+	
 	public ModelPainter() {
 		setOpaque(true);
+		
 	}
 
 	@Override
@@ -25,10 +28,11 @@ implements ListCellRenderer
 	{
 
 		ModelItems item = (ModelItems) value;
-		this.setText(item.getName());
-		this.setIcon(item.getIcon());		
 		
-
+		this.setText(item.getName());
+		
+		this.setIcon(item.getIcon());
+	        
 		if (isSelected)
 		{
 			setBackground(Color.DARK_GRAY);
@@ -52,4 +56,7 @@ implements ListCellRenderer
 		}
 		return this;
 	}
+
+	
+		 
 }

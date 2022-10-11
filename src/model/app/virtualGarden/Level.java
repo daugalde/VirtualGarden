@@ -19,13 +19,24 @@ public class Level extends SimulatorObject{
 	public int getMin() {
 		return min;
 	}
+	
 	public void setMin(int min) {
 		this.min = min;
 	}
+	
 	public int getMax() {
 		return max;
 	}
+	
 	public void setMax(int max) {
 		this.max = max;
+	}
+	
+	public boolean hasExceededMax() {
+		return this.max > 100;
+	}
+	
+	public boolean hasExceededMin() {
+		return this.min < 0;
 	}
 }

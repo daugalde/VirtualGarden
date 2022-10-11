@@ -1,5 +1,5 @@
 package common;
 
 public interface IObserver {
-	void update(Observable pObservable, Object args);
+	void update(Observable pObservable, Object pvalue);
 }

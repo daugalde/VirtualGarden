@@ -1,17 +1,11 @@
 package controller;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-
 import loaders.IFileLoader;
 import loaders.Loader;
-import model.app.AppModel;
 import model.app.virtualGarden.Simulator;
 import view.AppView;
 
 public class AppController {
-
-	private AppModel model;
 
 	private AppView view;
 	
@@ -20,21 +14,11 @@ public class AppController {
 	private Simulator simulator;
 
 	public AppController() {
-		this.model = new AppModel();
 		this.view = new AppView("Virtual Garden");
 	}
 
-	public AppController(AppModel model, AppView view) {
-		this.setModel(model);
+	public AppController(AppView view) {
 		this.setView(view);
-	}
-
-	public AppModel getModel() {
-		return model;
-	}
-
-	public void setModel(AppModel model) {
-		this.model = model;
 	}
 
 	public AppView getView() {
@@ -51,18 +35,17 @@ public class AppController {
 		
 		simulator = (Simulator)loader.LoadFile(new Simulator());
 		
-		view.InitView(simulator);
-				
+		simulator.setAppview(view);
+		
 		addEventListeners();
 		
 	}
 	
 	public void addEventListeners() {
-		view.getSimulateBtn().addActionListener(e -> startSimulation());
+		simulator.getAppview().getSimulateBtn().addActionListener(e -> startSimulation());
 	}
 	
 	private void startSimulation() {
-		resetUI () ;
 				
 		if(simulate != null && simulate.isAlive()) {
 			simulate.interrupt();
@@ -73,10 +56,6 @@ public class AppController {
 			simulate = new Thread(simulator);
 			simulate.start();
 		}
-		
-	}
-	
-	private void resetUI () {
 		
 	}
 }

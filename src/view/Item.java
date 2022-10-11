@@ -7,16 +7,20 @@ import javax.swing.ImageIcon;
 
 import model.app.virtualGarden.Plant;
 
-@SuppressWarnings("rawtypes")
+@SuppressWarnings({ "rawtypes", "serial" })
 public class Item extends DefaultListModel
 {
+	public Item() {
+		
+	}
+	
 	@SuppressWarnings("unchecked")
 	public void AddItem(ArrayList<Plant> plants) {
-		for (int index = 0; index < plants.size(); index++) {
-	    	  
-			ModelItems item = new ModelItems(plants.get(index).getName(), new ImageIcon(plants.get(index).getLifeCycle().getImage()));
+		for (int index = plants.size() - 1; index >= 0; index--) {
+
+			  ModelItems item = new ModelItems(plants.get(index).toString(), new ImageIcon(plants.get(index).getLifeCycle().getImage()));
 	    	
 	    	  addElement(item);
-	      }
+	     }		
 	}
 }

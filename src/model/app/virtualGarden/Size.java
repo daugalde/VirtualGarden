@@ -4,5 +4,7 @@ public class Size extends SimulatorObject {
 	
 	public Size () {
 		
+		
 	}
+	
 }

@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 
 public class Season extends SimulatorObject{
 	
-	
+	private boolean isActive;
 	private int sun;
 	private int water;
 	private int wind;
@@ -20,13 +20,14 @@ public class Season extends SimulatorObject{
 	}
 	
 	public Season(int id, String name, int sun, int water, int wind, int temperature, int startMonth, int endMonth) {
-		super(id,name);
-		this.sun = sun;
-		this.water = water;
+		setId(id);
+		setName(name);
+		setSun( sun);
+		setWater (water);
 		this.wind = wind;
 		this.temperature = temperature;
 		this.startMonth = startMonth <= 0 ? 1 : startMonth;
-		this.endMonth = endMonth <= 0 ? 1 : endMonth;
+		this.endMonth = endMonth <= 0 ? 12 : endMonth;
 	}
 	
 	public int getSun() {
@@ -79,5 +80,17 @@ public class Season extends SimulatorObject{
 
 	public void setDate(LocalDateTime date) {
 		this.date = date;
+	}
+
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
+	
+	public String toString() {
+		return " sun " + getSun() + "  water  " + getWater();
 	}
 }
